@@ -6,7 +6,7 @@ class DoctorsController < ApplicationController
   end
 
   def show
-    @doctor = Doctor.find(params[:id])
+    @appointments = Appointment.where(doctor_id: params[:id]).order(:start_time)
   end
 
   def new

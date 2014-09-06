@@ -3,6 +3,18 @@
 <h3><%= @doctor.specialty %></h3>
 <p><%= @doctor.description %></p>
 
-<p>Yo, dis Doc's appointments do here</p>
+<p><strong>Appointments</strong></p>
+<% @appointments.each do |appointment| %>
+  <p><%= appointment.patient_name %></p>
+  <ul>
+    <li><%= appointment.phone_number %></li>
+    <li><%= appointment.email %></li>
+    <li><%= appointment.start_time %></li>
+    <li><%= appointment.end_time %></li>
+    <li><%= appointment.reason %></li>
+  </ul>
+<% end %>
 
+
+<%= link_to 'Schedule an appointment', new_doctor_appointment_path(@doctor) %> | 
 <%= link_to 'Back', doctors_path %>
